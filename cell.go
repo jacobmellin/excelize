@@ -44,6 +44,7 @@ func (f *File) GetCellValue(sheet, axis string) (string, error) {
 	})
 }
 
+// GetRawCellValue gets the raw value of a cell, without any formatting applied.
 func (f *File) GetRawCellValue(sheet, axis string) (string, error) {
 	return f.getCellStringFunc(sheet, axis, func(x *xlsxWorksheet, c *xlsxC) (string, bool, error) {
 		return c.V, true, nil
