@@ -44,6 +44,12 @@ func (f *File) GetCellValue(sheet, axis string) (string, error) {
 	})
 }
 
+func (f *File) GetRawCellValue(sheet, axis string) (string, error) {
+	return f.getCellStringFunc(sheet, axis, func(x *xlsxWorksheet, c *xlsxC) (string, bool, error) {
+		return c.V, true, nil
+	})
+}
+
 // SetCellValue provides a function to set value of a cell. The following
 // shows the supported data types:
 //
