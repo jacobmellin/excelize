@@ -25,7 +25,7 @@ var (
 	excelBuggyPeriodStart = time.Date(1900, time.March, 1, 0, 0, 0, 0, time.UTC).Add(-time.Nanosecond)
 )
 
-// timeToExcelTime provides a function to convert time to Excel time.
+// TimeToExcelTime provides a function to convert time to Excel time.
 func TimeToExcelTime(t time.Time) (float64, error) {
 	// TODO in future this should probably also handle date1904 and like TimeFromExcelTime
 
@@ -134,7 +134,7 @@ func doTheFliegelAndVanFlandernAlgorithm(jd int) (day, month, year int) {
 	return d, m, y
 }
 
-// timeFromExcelTime provides a function to convert an excelTime
+// TimeFromExcelTime provides a function to convert an excelTime
 // representation (stored as a floating point number) to a time.Time.
 func TimeFromExcelTime(excelTime float64, date1904 bool) time.Time {
 	const MDD int64 = 106750 // Max time.Duration Days, aprox. 290 years

@@ -130,7 +130,7 @@ func (f *File) setCellIntFunc(sheet, axis string, value interface{}) error {
 // setCellTimeFunc provides a method to process time type of value for
 // SetCellValue.
 func (f *File) setCellTimeFunc(sheet, axis string, value time.Time) error {
-	excelTime, err := timeToExcelTime(value)
+	excelTime, err := TimeToExcelTime(value)
 	if err != nil {
 		return err
 	}

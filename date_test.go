@@ -31,7 +31,7 @@ var trueExpectedDateList = []dateTest{
 func TestTimeToExcelTime(t *testing.T) {
 	for i, test := range trueExpectedDateList {
 		t.Run(fmt.Sprintf("TestData%d", i+1), func(t *testing.T) {
-			excelTime, err := timeToExcelTime(test.GoValue)
+			excelTime, err := TimeToExcelTime(test.GoValue)
 			assert.NoError(t, err)
 			assert.Equalf(t, test.ExcelValue, excelTime,
 				"Time: %s", test.GoValue.String())
@@ -46,7 +46,7 @@ func TestTimeToExcelTime_Timezone(t *testing.T) {
 	}
 	for i, test := range trueExpectedDateList {
 		t.Run(fmt.Sprintf("TestData%d", i+1), func(t *testing.T) {
-			_, err := timeToExcelTime(test.GoValue.In(location))
+			_, err := TimeToExcelTime(test.GoValue.In(location))
 			assert.EqualError(t, err, "only UTC time expected")
 		})
 	}
@@ -63,13 +63,13 @@ func TestTimeFromExcelTime(t *testing.T) {
 
 	for i, test := range trueExpectedInputList {
 		t.Run(fmt.Sprintf("TestData%d", i+1), func(t *testing.T) {
-			assert.Equal(t, test.GoValue, timeFromExcelTime(test.ExcelValue, false))
+			assert.Equal(t, test.GoValue, TimeFromExcelTime(test.ExcelValue, false))
 		})
 	}
 }
 
 func TestTimeFromExcelTime_1904(t *testing.T) {
 	_, _ = shiftJulianToNoon(1, -0.6)
-	timeFromExcelTime(61, true)
-	timeFromExcelTime(62, true)
+	TimeFromExcelTime(61, true)
+	TimeFromExcelTime(62, true)
 }

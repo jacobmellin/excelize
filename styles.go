@@ -942,7 +942,7 @@ func parseTime(i int, v string) string {
 	if err != nil {
 		return v
 	}
-	val := timeFromExcelTime(f, false)
+	val := TimeFromExcelTime(f, false)
 	format := builtInNumFmt[i]
 
 	replacements := []struct{ xltime, gotime string }{
