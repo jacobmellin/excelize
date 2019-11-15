@@ -26,7 +26,7 @@ var (
 )
 
 // timeToExcelTime provides a function to convert time to Excel time.
-func timeToExcelTime(t time.Time) (float64, error) {
+func TimeToExcelTime(t time.Time) (float64, error) {
 	// TODO in future this should probably also handle date1904 and like TimeFromExcelTime
 
 	// Force user to explicit convet passed value to UTC time.
@@ -136,7 +136,7 @@ func doTheFliegelAndVanFlandernAlgorithm(jd int) (day, month, year int) {
 
 // timeFromExcelTime provides a function to convert an excelTime
 // representation (stored as a floating point number) to a time.Time.
-func timeFromExcelTime(excelTime float64, date1904 bool) time.Time {
+func TimeFromExcelTime(excelTime float64, date1904 bool) time.Time {
 	const MDD int64 = 106750 // Max time.Duration Days, aprox. 290 years
 	var date time.Time
 	var intPart = int64(excelTime)
