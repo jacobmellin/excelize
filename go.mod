@@ -1,4 +1,4 @@
-module github.com/jacobmellin/excelize/v2
+module github.com/jacobmellin/excelize
 
 go 1.12
 
